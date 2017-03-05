@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html class="no-js" lang="">
     <head>
         <meta charset="utf-8">
@@ -9,34 +9,112 @@
 
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
         <!-- Place favicon.ico in the root directory -->
-		<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
         <link rel="stylesheet" href="css/normalize.css">
+        <!-- reset default browser css -->
+
+        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+        <!-- webfonts from fonts.google.com -->
+        
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <!-- material design icons from Google -->
+        
+        <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+        <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="material.min.css">
+        <script src="material.min.js"></script>
+        <!-- material design lite -->
         <link rel="stylesheet" href="css/main.css">
-        <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+
+        <script src="https://www.gstatic.com/firebasejs/3.6.10/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/3.6.10/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/3.6.10/firebase-database.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/3.6.10/firebase-messaging.js"></script>
+        <!-- include all necessary Firebase components -->
+
+        <!-- Leave out Storage -->
+        <!-- <script src="https://www.gstatic.com/firebasejs/3.6.10/firebase-storage.js"></script> -->
     </head>
     <body>
         <!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
-        <!-- Add your site or application content here -->
-		<h1>Know Your Shed</h1>
-        Add Items<br />
-            <input type="text" name="add" />
-        <input type="submit" value="Add" /><br />
-        <h2>Your Items</h2>
-        <input type="checkbox" name="devices" value="1" />Cookies<br />
-        <input type="checkbox" name="devices" value="2" />Comic Books<br />
-        <input type="submit" value="Show" /><br />
+        <!-- main content -->
+        <div class="mdl-layout mdl-js-layout">
+          <!-- top bar -->
+          <header class="mdl-layout__header">
+            <!-- navbar button -->
+            <div class="mdl-layout-icon"></div>
+            <!-- top bar content -->
+            <div class="mdl-layout__header-row">
+              <!-- title -->
+              <span class="mdl-layout__title">Know Your Shed</span>
+              <!-- navigation links -->
+              <div class="mdl-layout-spacer"></div>
+              <nav class="mdl-navigation">
+                <a class="navis mdl-button mdl-js-button mdl-js-ripple-effect" href="#">Welcome</a>
+                <a class="navis mdl-button mdl-js-button mdl-js-ripple-effect" href="#">Explore</a>
+                <!-- Sign Out -->
+                <button id="sign_out" class="mdl-button mdl-js-button mdl-js-ripple-effect">
+                <i class="material-icons">&#xE879;</i> Sign Out
+                </button>
+                <!-- Sign In -->
+                <a href="#"><button id="sign_in" class="mdl-button mdl-js-button mdl-js-ripple-effect">
+                <i class="material-icons">&#xE851;</i> Sign In
+                </button></a>
+              </nav>
+            </div>
+          </header>
+          <div class="mdl-layout__drawer">
+            <span id="drawer-header" class="mdl-layout__title">Know Your Shed</span>
+            <nav class="mdl-navigation__link">
+            </nav>
+          </div>
+          <main class="mdl-layout__content">
+          <div id="main-content">
+            <h2>Your Important Items</h2>
+            <ul class='mdl-list'>
+              <li class="mdl-list__item mdl-button mdl-js-button mdl-js-ripple-effect"><a class="mdl-navigation__link">
+                <span class="mdl-list__item-primary-content">
+                    Test
+                </span></a>
+              </li>
+              <li class="mdl-list__item mdl-button mdl-js-button mdl-js-ripple-effect"><a class="mdl-navigation__link">
+                <span class="mdl-list__item-primary-content">
+                    Test
+                </span></a>
+              </li>
+              <li class="mdl-list__item mdl-button mdl-js-button mdl-js-ripple-effect"><a class="mdl-navigation__link">
+                <span class="mdl-list__item-primary-content">
+                    Test
+                </span></a>
+              </li>
+            </ul>
+            <!-- Accent-colored raised button with ripple -->
+            <button id="upload" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+              send something
+            </button>
+          </div>
+          </main>
+        </div>
 
-		<p id="1">Hello</p>
-		<a id="start" href=""><h3>Explore...</h3></a>
+        <script src="https://www.gstatic.com/firebasejs/3.7.0/firebase.js"></script>
+        <script>
+          // Initialize firebase
+          var config = {
+            apiKey: "AIzaSyDjzG7k3TeeF6ymCZ4UROAQ01wl1OyBPBY",
+            authDomain: "know-your-shed.firebaseapp.com",
+            databaseURL: "https://know-your-shed.firebaseio.com",
+            storageBucket: "know-your-shed.appspot.com",
+            messagingSenderId: "1020032637691"
+          };
+          firebase.initializeApp(config);
+        </script>
 		<!--
         <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
         -->
-		<script src="js/vendor/jquery-3.1.1.min.js"></script>
-		<script src="js/plugins.js"></script>
+		<script src="js/jquery-3.1.1.min.js"></script>
         <script src="js/main.js"></script>
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
