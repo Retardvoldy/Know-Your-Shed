@@ -69,7 +69,7 @@ if (user != null) {
 
 $(document).ready(function(){
 	if(user != null) {
-		$("#drawer-header").text(name);
+		$("#1").text(name);
 	} else {
 		$("#sign_in").click(function(){
 			// sign into google through a redirect
@@ -82,4 +82,7 @@ $(document).ready(function(){
 	}, function(error) {
 	  console.error('Sign Out Error', error);
 	});
+    $("#1").click(function() {
+        scrollTop: $("1").offset().top
+    }, 1000);
 });
