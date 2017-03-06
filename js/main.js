@@ -70,6 +70,20 @@ if (user != null) {
 $(document).ready(function(){
 	if(user != null) {
 		$("#1").text(name);
+        var itemsref = database.ref('users/' + uid + '/items');
+        itemsref.once('value', function(snapshot) {
+            snapshot.forEach(function(childSnapshot) {
+                var childKey = childSnapshot.key;
+                var childData = childSnapshot.val();
+                $(".mdl-list").append('
+                <li class="mdl-list__item mdl-button mdl-js-button mdl-js-ripple-effect"><a class="mdl-navigation__link">
+                    <span class="mdl-list__item-primary-content">
+                        Test
+                    </span></a>
+                </li>
+                ');
+        });
+    });
 	} else {
 		$("#sign_in").click(function(){
 			// sign into google through a redirect
